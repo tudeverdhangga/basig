@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+Route::get('/', 'HotelController@index')->name('dahsboard');
+Route::get('/hotel/json', 'HotelController@json')->name('hotel_json');
 
 // Route::get('/','DashboardController@index');
 

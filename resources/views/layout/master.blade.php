@@ -22,7 +22,8 @@
     crossorigin=""
   >
   </script>
-
+  <script src="jquery-3.6.0.min.js"></script>
+  
   <!-- plugin css -->
   {!! Html::style('assets/plugins/@mdi/font/css/materialdesignicons.min.css') !!}
   {!! Html::style('assets/plugins/perfect-scrollbar/perfect-scrollbar.css') !!}

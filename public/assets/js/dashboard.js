@@ -2,7 +2,7 @@
     "use strict";
     $(function() {
         // Maps
-        var map = L.map('map').setView([-8.4514523, 115.0869769], 9.89);
+        var map = L.map('map').setView([-7.4561525,111.3831268], 7.59);
         var tiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
             maxZoom: 18,
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
@@ -11,8 +11,15 @@
             tileSize: 512,
             zoomOffset: -1
         }).addTo(map);
-        var marker = L.marker([-8.8042982, 115.1771983]).addTo(map);
-        
+
+        $(document).ready(function() {
+            $.getJSON('hotel/json', function(data) {
+                $.each(data, function (index) { 
+                    L.marker([parseFloat(data[index].latitude), parseFloat(data[index].longitude)]).addTo(map)
+                        .bindPopup('<h4>' + data[index].name + '</h4><br/>' + data[index].address);                     
+                });
+            })
+        });
 
         var lineChartStyleOption_1 = {
             scales: {

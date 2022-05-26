@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class HotelController extends Controller
 {
+    public function __construct()
+    {
+        $this->Hotel = new Hotel();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +18,13 @@ class HotelController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard');
+    }
+
+    public function json()
+    {
+        $result = $this->Hotel->allData();
+        return json_encode($result);
     }
 
     /**
