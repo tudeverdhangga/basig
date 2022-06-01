@@ -16,7 +16,8 @@
             $.getJSON('hotel/json', function(data) {
                 $.each(data, function (index) { 
                     L.marker([parseFloat(data[index].latitude), parseFloat(data[index].longitude)]).addTo(map)
-                        .bindPopup('<h4>' + data[index].name + '</h4><br/>' + data[index].address);                     
+                        .bindPopup(`<img src="assets/images/hotelspic/` + data[index].image + `" alt="logo" style="height: 200px; width: 100%; object-fit: cover" /><br/>` + 
+                                   '<h4>' + data[index].name + '</h4><br/>' + data[index].address);          
                 });
             })
         });
