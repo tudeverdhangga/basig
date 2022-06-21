@@ -13,7 +13,13 @@
 
 Route::get('/', 'HotelController@index')->name('dahsboard');
 Route::get('/hotel/json', 'HotelController@json')->name('hotel_json');
-
+Route::get('/hotel', 'HotelController@index_hotel')->name('hotel.index');
+Route::get('/hotel/create', 'HotelController@create')->name('hotel.create');
+Route::post('/hotel', 'HotelController@store')->name('hotel.store');
+Route::get('/hotel/{hotel}/show', 'HotelController@show')->name('hotel.show');
+Route::get('/hotel/{hotel}', 'HotelController@edit')->name('hotel.edit');
+Route::put('/hotel/{hotel}', 'HotelController@update')->name('hotel.update');
+Route::delete('/hotel/{hotel}', 'HotelController@destroy')->name('hotel.destroy');
 // Route::get('/','DashboardController@index');
 
 Route::group(['prefix' => 'basic-ui'], function(){

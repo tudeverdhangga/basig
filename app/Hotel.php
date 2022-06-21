@@ -7,7 +7,17 @@ use Illuminate\Support\Facades\DB;
 
 class Hotel extends Model
 {
-    public function allData(){
+    /**
+     * fillable
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'address', 'regency', 'phone', 'website', 'image', 'latitude', 'longitude'
+    ];
+
+    public function allData()
+    {
         $results = DB::table('hotels')->get();
         return $results;
     }

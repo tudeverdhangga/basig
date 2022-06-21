@@ -7,10 +7,16 @@
       </a>
     </li>
     <li class="nav-item {{ active_class(['tables/basic-table']) }}">
+      <a class="nav-link" href="{{ url('/hotel') }}">
+        <i class="menu-icon mdi mdi-table-large"></i>
+        <p class="menu-title mb-0">Data Hotel</p>
+      </a>
+    </li>
+    <!-- <li class="nav-item {{ active_class(['tables/basic-table']) }}">
       <a class="nav-link" href="{{ url('/tables/basic-table') }}">
         <i class="menu-icon mdi mdi-table-large"></i>
         <p class="menu-title mb-0">Tables</p>
       </a>
-    </li>
+    </li> -->
   </ul>
 </nav>

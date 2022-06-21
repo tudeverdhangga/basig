@@ -21,7 +21,8 @@ class CreateHotelsTable extends Migration
             $table->string('phone');
             $table->string('website');
             $table->string('image');
-            $table->string('coordinate');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->timestamps();
         });
     }
