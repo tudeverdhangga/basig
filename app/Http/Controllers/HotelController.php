@@ -60,8 +60,8 @@ class HotelController extends Controller
             'phone'     => 'required',
             'website'     => 'required',
             'image'     => 'required|image|mimes:png,jpg,jpeg',
-            'latitude'     => 'required',
-            'longitude'     => 'required',
+            'latitude'     => 'required|integer',
+            'longitude'     => 'required|integer',
         ]);
 
         //upload image
@@ -136,8 +136,8 @@ class HotelController extends Controller
                 'phone'     => 'required',
                 'website'     => 'required',
                 'image'     => 'required|image|mimes:png,jpg,jpeg',
-                'latitude'     => 'required',
-                'longitude'     => 'required',
+                'latitude'     => 'required|integer',
+                'longitude'     => 'required|integer',
             ]);
 
             $image = $request->file('image');
@@ -168,8 +168,8 @@ class HotelController extends Controller
                 'regency'     => 'required',
                 'phone'     => 'required',
                 'website'     => 'required',
-                'latitude'     => 'required',
-                'longitude'     => 'required',
+                'latitude'     => 'required|integer',
+                'longitude'     => 'required|integer',
             ]);
             $hotel->name = $request->name;
             $hotel->address = $request->address;

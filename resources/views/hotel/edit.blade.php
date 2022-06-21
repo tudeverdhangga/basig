@@ -21,27 +21,27 @@
 
                     <div class="form-group">
                         <label class="font-weight-bold">Nama</label>
-                        <input type="text" class="form-control" name="name" placeholder="Masukkan Nama Hotel" value="{{$hotel->name}}">
+                        <input type="text" class="form-control" name="name" placeholder="Masukkan Nama Hotel" value="{{$hotel->name ?? old('name') }}">
                     </div>
 
                     <div class="form-group">
                         <label class="font-weight-bold">Alamat</label>
-                        <input type="text" class="form-control" name="address" placeholder="Masukkan Alamat Hotel" value="{{$hotel->address}}">
+                        <input type="text" class="form-control" name="address" placeholder="Masukkan Alamat Hotel" value="{{$hotel->address ?? old('address')}}">
                     </div>
 
                     <div class="form-group">
                         <label class="font-weight-bold">Daerah</label>
-                        <input type="text" class="form-control" name="regency" placeholder="Masukkan Daerah Hotel" value="{{$hotel->regency}}">
+                        <input type="text" class="form-control" name="regency" placeholder="Masukkan Daerah Hotel" value="{{$hotel->regency ?? old('regency')}}">
                     </div>
 
                     <div class="form-group">
                         <label class="font-weight-bold">No. Telepon</label>
-                        <input type="text" class="form-control" name="phone" placeholder="Masukkan No. Telepon Hotel" value="{{$hotel->phone}}">
+                        <input type="text" class="form-control" name="phone" placeholder="Masukkan No. Telepon Hotel" value="{{$hotel->phone ?? old('phone')}}">
                     </div>
 
                     <div class="form-group">
                         <label class="font-weight-bold">Website</label>
-                        <input type="text" class="form-control" name="website" placeholder="Masukkan Website Hotel" value="{{$hotel->website}}">
+                        <input type="text" class="form-control" name="website" placeholder="Masukkan Website Hotel" value="{{$hotel->website ?? old('website')}}">
                     </div>
 
                     <div class="form-group">
@@ -54,12 +54,12 @@
 
                     <div class="form-group">
                         <label class="font-weight-bold">Lokasi latitude</label>
-                        <input type="text" class="form-control" name="latitude" placeholder="Masukkan Lokasi latitude Hotel" value="{{$hotel->latitude}}">
+                        <input type="text" class="form-control" name="latitude" placeholder="Masukkan Lokasi latitude Hotel" value="{{$hotel->latitude ?? old('latitude')}}">
                     </div>
 
                     <div class="form-group">
                         <label class="font-weight-bold">Lokasi longitude</label>
-                        <input type="text" class="form-control" name="longitude" placeholder="Masukkan Lokasi longitude Hotel" value="{{$hotel->longitude}}">
+                        <input type="text" class="form-control" name="longitude" placeholder="Masukkan Lokasi longitude Hotel" value="{{$hotel->longitude ?? old('longitude')}}">
                     </div>
 
 
