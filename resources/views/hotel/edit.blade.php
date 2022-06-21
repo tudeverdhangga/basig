@@ -10,7 +10,7 @@
     <div class="col-md-12">
         <div class="card border-0 shadow rounded">
             <div class="card-body">
-                <h3>Edit Data Hotel</h3>
+                <h3 class="mb-5">Edit Data Hotel</h3>
                 <form action="{{ route('hotel.update', $hotel->id) }}" method="post" enctype="multipart/form-data">
 
                     {{ csrf_field() }}
@@ -76,24 +76,4 @@
 @endsection
 
 @push('plugin-scripts')
-@endpush
-
-@push('custom-scripts')
-<form action="" id="delete-form" method="post">
-    @method('delete')
-    @csrf
-</form>
-<script>
-    // $('#example2').DataTable({
-    //     "responsive": true,
-    // });
-
-    function notificationBeforeDelete(event, el) {
-        event.preventDefault();
-        if (confirm('Apakah anda yakin akan menghapus data ? ')) {
-            $("#delete-form").attr('action', $(el).attr('href'));
-            $("#delete-form").submit();
-        }
-    }
-</script>
 @endpush
