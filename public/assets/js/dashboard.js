@@ -16,7 +16,7 @@
             $.getJSON('hotel/json', function(data) {
                 $.each(data, function (index) { 
                     L.marker([parseFloat(data[index].latitude), parseFloat(data[index].longitude)]).addTo(map)
-                        .bindPopup(`<img src="assets/images/hotelspic/` + data[index].image + `" alt="logo" style="height: 200px; width: 100%; object-fit: cover; margin-bottom: 1rem" /><br/>` + 
+                        .bindPopup(`<img src="/hotelspic/` + data[index].image + `" alt="logo" style="height: 200px; width: 100%; object-fit: cover; margin-bottom: 1rem" /><br/>` + 
                                    '<h4>' + data[index].name + '</h4><br/>' + 
                                    '<h6>' + data[index].address + '</h6>' +          
                                    '<h6>+' + data[index].phone + '</h6>');          
