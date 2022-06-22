@@ -52,7 +52,7 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
+        // dd($request->files);
         $this->validate($request, [
             'name'     => 'required',
             'address'   => 'required',
@@ -60,8 +60,8 @@ class HotelController extends Controller
             'phone'     => 'required',
             'website'     => 'required',
             'image'     => 'required|image|mimes:png,jpg,jpeg',
-            'latitude'     => 'required|integer',
-            'longitude'     => 'required|integer',
+            'latitude'     => 'required',
+            'longitude'     => 'required',
         ]);
 
         //upload image
@@ -136,8 +136,8 @@ class HotelController extends Controller
                 'phone'     => 'required',
                 'website'     => 'required',
                 'image'     => 'required|image|mimes:png,jpg,jpeg',
-                'latitude'     => 'required|integer',
-                'longitude'     => 'required|integer',
+                'latitude'     => 'required',
+                'longitude'     => 'required',
             ]);
 
             $image = $request->file('image');
@@ -168,8 +168,8 @@ class HotelController extends Controller
                 'regency'     => 'required',
                 'phone'     => 'required',
                 'website'     => 'required',
-                'latitude'     => 'required|integer',
-                'longitude'     => 'required|integer',
+                'latitude'     => 'required',
+                'longitude'     => 'required',
             ]);
             $hotel->name = $request->name;
             $hotel->address = $request->address;
