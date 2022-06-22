@@ -52,41 +52,71 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->files);
-        $this->validate($request, [
-            'name'     => 'required',
-            'address'   => 'required',
-            'regency'     => 'required',
-            'phone'     => 'required',
-            'website'     => 'required',
-            'image'     => 'required|image|mimes:png,jpg,jpeg',
-            'latitude'     => 'required',
-            'longitude'     => 'required',
-        ]);
+        if ($request->image) {
+            // dd($request->files);
+            // $this->validate($request, [
+            //     'name'     => 'required',
+            //     'address'   => 'required',
+            //     'regency'     => 'required',
+            //     'phone'     => 'required',
+            //     'website'     => 'required',
+            //     'image'     => 'required|image|mimes:png,jpg,jpeg',
+            //     'latitude'     => 'required',
+            //     'longitude'     => 'required',
+            // ]);
 
-        //upload image
-        $image = $request->file('image');
-        // dd($image);
-        $new_name = rand() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('hotelspic'), $new_name);
+            //upload image
+            $image = $request->file('image');
+            $new_name = rand() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('hotelspic'), $new_name);
 
-        $hotel = Hotel::create([
-            'name'     => $request->name,
-            'address'   => $request->address,
-            'regency'     => $request->regency,
-            'phone'     => $request->phone,
-            'website'     => $request->website,
-            'image'     => $new_name,
-            'latitude'     => $request->latitude,
-            'longitude'     => $request->longitude,
-        ]);
+            $hotel = Hotel::create([
+                'name'     => $request->name,
+                'address'   => $request->address,
+                'regency'     => $request->regency,
+                'phone'     => $request->phone,
+                'website'     => $request->website,
+                'image'     => $new_name,
+                'latitude'     => $request->latitude,
+                'longitude'     => $request->longitude,
+            ]);
 
-        if ($hotel) {
-            //redirect dengan pesan sukses
-            return redirect()->route('hotel.index')->with(['success' => 'Data Berhasil Disimpan!']);
+            if ($hotel) {
+                //redirect dengan pesan sukses
+                return redirect()->route('hotel.index')->with(['success' => 'Data Berhasil Disimpan!']);
+            } else {
+                //redirect dengan pesan error
+                return redirect()->route('hotel.index')->with(['error' => 'Data Gagal Disimpan!']);
+            }
         } else {
-            //redirect dengan pesan error
-            return redirect()->route('hotel.index')->with(['error' => 'Data Gagal Disimpan!']);
+            // dd($request->files);
+            // $this->validate($request, [
+            //     'name'     => 'required',
+            //     'address'   => 'required',
+            //     'regency'     => 'required',
+            //     'phone'     => 'required',
+            //     'website'     => 'required',
+            //     'latitude'     => 'required',
+            //     'longitude'     => 'required',
+            // ]);
+
+            $hotel = Hotel::create([
+                'name'     => $request->name,
+                'address'   => $request->address,
+                'regency'     => $request->regency,
+                'phone'     => $request->phone,
+                'website'     => $request->website,
+                'latitude'     => $request->latitude,
+                'longitude'     => $request->longitude,
+            ]);
+
+            if ($hotel) {
+                //redirect dengan pesan sukses
+                return redirect()->route('hotel.index')->with(['success' => 'Data Berhasil Disimpan!']);
+            } else {
+                //redirect dengan pesan error
+                return redirect()->route('hotel.index')->with(['error' => 'Data Gagal Disimpan!']);
+            }
         }
     }
 
@@ -129,22 +159,22 @@ class HotelController extends Controller
         // dd($request);
         $hotel = Hotel::find($id);
         if ($request->image) {
-            $this->validate($request, [
-                'name'     => 'required',
-                'address'   => 'required',
-                'regency'     => 'required',
-                'phone'     => 'required',
-                'website'     => 'required',
-                'image'     => 'required|image|mimes:png,jpg,jpeg',
-                'latitude'     => 'required',
-                'longitude'     => 'required',
-            ]);
+            // $this->validate($request, [
+            //     'name'     => 'required',
+            //     'address'   => 'required',
+            //     'regency'     => 'required',
+            //     'phone'     => 'required',
+            //     'website'     => 'required',
+            //     'image'     => 'required|image|mimes:png,jpg,jpeg',
+            //     'latitude'     => 'required',
+            //     'longitude'     => 'required',
+            // ]);
 
             $image = $request->file('image');
             // dd($image);
             $new_name = rand() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('hotelspic'), $new_name);
-            
+
             $filePath =  public_path("hotelspic\\" . $hotel->image);
             // dd($filePath);
             if (file_exists($filePath)) {
@@ -162,15 +192,15 @@ class HotelController extends Controller
             $hotel->longitude = $request->longitude;
             $hotel->save();
         } else {
-            $this->validate($request, [
-                'name'     => 'required',
-                'address'   => 'required',
-                'regency'     => 'required',
-                'phone'     => 'required',
-                'website'     => 'required',
-                'latitude'     => 'required',
-                'longitude'     => 'required',
-            ]);
+            // $this->validate($request, [
+            //     'name'     => 'required',
+            //     'address'   => 'required',
+            //     'regency'     => 'required',
+            //     'phone'     => 'required',
+            //     'website'     => 'required',
+            //     'latitude'     => 'required',
+            //     'longitude'     => 'required',
+            // ]);
             $hotel->name = $request->name;
             $hotel->address = $request->address;
             $hotel->regency = $request->regency;
